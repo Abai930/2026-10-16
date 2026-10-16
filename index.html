@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f5f4ef">
+  <title>我的小房間｜自由探索</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="room.css">
+  <script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.160.1/build/three.module.js"}}</script>
+  <script type="module" src="room.js"></script>
+</head>
+<body>
+  <main class="room-app">
+    <header class="room-topbar">
+      <a class="room-brand" href="#room" aria-label="我的小房間首頁"><span aria-hidden="true">⌂</span> 我的小房間</a>
+      <div class="room-topbar-right"><span class="room-mood"><span class="room-live-dot"></span> 現在很安靜</span><button id="sound-toggle" class="sound-toggle" type="button" aria-pressed="false">♫ <span>音效關閉</span></button></div>
+    </header>
+    <section class="room-stage" id="room" aria-label="可自由探索的 3D 房間">
+      <canvas id="room-canvas" tabindex="0" aria-label="3D 房間。點擊畫面後用 W A S D 移動，按 Escape 解鎖滑鼠。手機可用下方方向按鈕。"></canvas>
+      <div class="room-overlay room-brand-overlay"><span class="room-kicker">A LITTLE PLACE OF YOUR OWN</span><h1>我的小房間</h1><p>在這裡，慢一點也沒關係。</p></div>
+      <div class="room-overlay room-object-card" id="object-card" aria-live="polite"><span class="object-card-icon" id="object-icon" aria-hidden="true">✦</span><div><span class="room-kicker" id="object-kicker">ROOM NOTE</span><h2 id="object-title">探索一下房間</h2><p id="object-description">走近物件，點擊或按 E，就能看看它的小故事。</p></div><button id="close-card" class="close-card" type="button" aria-label="關閉小故事">×</button></div>
+      <div class="room-overlay room-hint" id="room-hint"><span class="hint-key">點擊畫面</span><span>鎖定滑鼠後即可環顧房間</span><span class="hint-separator"></span><span class="hint-key">W A S D</span><span>移動</span><span class="hint-key">E</span><span>探索</span></div>
+      <div class="room-overlay room-reticle" aria-hidden="true"><span></span></div>
+      <div class="room-overlay room-status" id="room-status" aria-live="polite">點擊 3D 畫面開始探索</div>
+      <div class="room-overlay touch-controls" aria-label="觸控移動控制"><button type="button" data-move="forward" aria-label="向前">↑</button><div><button type="button" data-move="left" aria-label="向左">←</button><button type="button" data-move="backward" aria-label="向後">↓</button><button type="button" data-move="right" aria-label="向右">→</button></div></div>
+      <div class="room-overlay look-controls" aria-label="觸控視角控制"><button type="button" data-look="left" aria-label="視角向左">↶</button><button type="button" data-look="right" aria-label="視角向右">↷</button></div>
+      <div class="room-overlay room-map" aria-hidden="true"><span class="map-label">YOUR LITTLE WORLD</span><div class="map-room"><span class="map-door"></span><span class="map-you" id="map-you"></span><span class="map-desk"></span><span class="map-bed"></span><span class="map-plant"></span></div></div>
+    </section>
+    <footer class="room-footer"><span>一個可以自由走動、慢慢探索的小小空間。</span><span>WASD 移動 <i>·</i> 滑鼠看四周 <i>·</i> 點擊物件或按 E 互動 <i>·</i> Esc 釋放滑鼠</span></footer>
+  </main>
+</body>
+</html>
